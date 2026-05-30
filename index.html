@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | IA, Saúde e Emergência</title>
+  <meta name="description" content="Portfólio profissional de estudante de medicina, engenheiro eletricista e bombeiro militar com foco em IA aplicada à saúde, emergência, monitorização clínica e sistemas inteligentes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --bg-card: rgba(255, 255, 255, 0.075);
+      --text: #ecf4ff;
+      --muted: #9eb0c5;
+      --line: rgba(255, 255, 255, 0.13);
+      --primary: #42d3ff;
+      --primary-2: #56f0b8;
+      --danger: #ff5a7a;
+      --warning: #ffd166;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(66, 211, 255, 0.20), transparent 34%),
+        radial-gradient(circle at 82% 14%, rgba(86, 240, 184, 0.16), transparent 30%),
+        radial-gradient(circle at 55% 80%, rgba(255, 90, 122, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body.light {
+      --bg: #f5f8fc;
+      --bg-soft: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.86);
+      --text: #101928;
+      --muted: #546179;
+      --line: rgba(15, 23, 42, 0.12);
+      --shadow: 0 24px 80px rgba(20, 38, 70, 0.12);
+      background:
+        radial-gradient(circle at top left, rgba(66, 211, 255, 0.22), transparent 34%),
+        radial-gradient(circle at 82% 14%, rgba(86, 240, 184, 0.18), transparent 30%),
+        #f5f8fc;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      width: min(100% - 32px, var(--max));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.74);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    body.light .nav-inner {
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06101d;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(66, 211, 255, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    body.light .nav-links a:hover,
+    body.light .nav-links a.active {
+      background: rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn,
+    .menu-btn {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .icon-btn:hover,
+    .menu-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(66, 211, 255, 0.45);
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 132px 0 76px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 8px 13px;
+      border: 1px solid rgba(66, 211, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(66, 211, 255, 0.08);
+      color: #b9eeff;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    body.light .eyebrow {
+      color: #066078;
+      background: rgba(66, 211, 255, 0.18);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--primary-2);
+      box-shadow: 0 0 0 7px rgba(86, 240, 184, 0.12);
+    }
+
+    h1 {
+      max-width: 830px;
+      font-size: clamp(2.65rem, 7vw, 5.95rem);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2) 58%, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 24px;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1.03rem, 2vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #06101d;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 42px rgba(66, 211, 255, 0.22);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--line);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    body.light .hero-card {
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at top, rgba(66, 211, 255, 0.25), transparent 42%);
+      pointer-events: none;
+    }
+
+    .monitor {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(2, 8, 18, 0.58);
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    body.light .monitor {
+      background: #0b1625;
+      color: #ecf4ff;
+    }
+
+    .monitor-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(86, 240, 184, 0.10);
+      color: #baffdf;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .status-bars {
+      display: flex;
+      gap: 6px;
+    }
+
+    .status-bars span {
+      width: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+      opacity: 0.75;
+    }
+
+    .status-bars span:nth-child(1) { height: 18px; }
+    .status-bars span:nth-child(2) { height: 28px; background: var(--primary-2); }
+    .status-bars span:nth-child(3) { height: 22px; background: var(--warning); }
+    .status-bars span:nth-child(4) { height: 34px; background: var(--danger); }
+
+    .vitals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .vital {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .vital small {
+      display: block;
+      color: #8da2bc;
+      font-size: 0.76rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .vital strong {
+      font-size: 1.8rem;
+      letter-spacing: -0.06em;
+    }
+
+    .vital span {
+      color: #8da2bc;
+      font-size: 0.78rem;
+      margin-left: 4px;
+    }
+
+    .wave {
+      height: 112px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(rgba(66, 211, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66, 211, 255, 0.07) 1px, transparent 1px);
+      background-size: 18px 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wave svg {
+      position: absolute;
+      inset: 0;
+      width: 200%;
+      height: 100%;
+      animation: ecg 4.6s linear infinite;
+    }
+
+    @keyframes ecg {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .triage-note {
+      margin-top: 16px;
+      padding: 15px;
+      border: 1px solid rgba(86, 240, 184, 0.18);
+      border-radius: 18px;
+      background: rgba(86, 240, 184, 0.08);
+      color: #d8ffee;
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--bg-card);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.05em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    section {
+      padding: 88px 0;
+      scroll-margin-top: 110px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--primary-2);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+    }
+
+    .section-header p,
+    .about-text p,
+    .article-card p,
+    .project-card p,
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .section-header p {
+      max-width: 520px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .profile-card,
+    .about-text,
+    .project-card,
+    .article-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::after {
+      content: '';
+      position: absolute;
+      right: -70px;
+      top: -70px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(66, 211, 255, 0.14);
+    }
+
+    .avatar {
+      width: 142px;
+      height: 142px;
+      padding: 4px;
+      margin-bottom: 22px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 18px 42px rgba(66, 211, 255, 0.18);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 30px;
+      border: 3px solid rgba(7, 17, 31, 0.85);
+      background: #ffffff;
+    }
+
+    body.light .avatar img {
+      border-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .profile-card h3 {
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .profile-actions .btn {
+      min-height: 42px;
+      padding: 0 15px;
+      font-size: 0.9rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .about-text {
+      padding: 30px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .timeline-item time {
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .timeline-item h4 {
+      margin-bottom: 5px;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-item p {
+      font-size: 0.94rem;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.22s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #06101d;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 23px;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover,
+    .article-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(66, 211, 255, 0.4);
+    }
+
+    .project-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(66, 211, 255, 0.12);
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3,
+    .article-card h3 {
+      font-size: 1.22rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .project-footer {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .project-footer .project-meta {
+      margin-top: 0;
+    }
+
+    .project-footer .btn {
+      width: fit-content;
+      min-height: 42px;
+      padding: 0 15px;
+      font-size: 0.9rem;
+    }
+
+    .project-meta span {
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .library-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pdf-card {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, min-height 0.35s ease, background 0.35s ease;
+    }
+
+    .pdf-card.expandable {
+      cursor: pointer;
+    }
+
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(66, 211, 255, 0.4);
+    }
+
+    .pdf-card.expanded {
+      grid-column: 1 / -1;
+      min-height: 520px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.055));
+      border-color: rgba(86, 240, 184, 0.35);
+    }
+
+    .pdf-card.expanded:hover {
+      transform: none;
+    }
+
+    .pdf-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 19px;
+      background: rgba(255, 90, 122, 0.13);
+      color: var(--danger);
+      font-size: 1.65rem;
+    }
+
+    .pdf-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .pdf-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pdf-summary {
+      display: grid;
+      gap: 14px;
+      max-height: 0;
+      margin-top: 0;
+      opacity: 0;
+      overflow: hidden;
+      color: var(--muted);
+      transition: max-height 0.45s ease, margin-top 0.35s ease, opacity 0.35s ease;
+    }
+
+    .pdf-card.expanded .pdf-summary {
+      max-height: 1800px;
+      margin-top: 20px;
+      opacity: 1;
+    }
+
+    .pdf-summary p {
+      line-height: 1.78;
+    }
+
+    .pdf-footer {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .pdf-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pdf-tags span {
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .pdf-footer .btn {
+      width: fit-content;
+      min-height: 42px;
+      padding: 0 15px;
+      font-size: 0.9rem;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .article-card {
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .article-featured {
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(66, 211, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 36%, rgba(86, 240, 184, 0.14), transparent 30%);
+      pointer-events: none;
+    }
+
+    .article-featured > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .date {
+      display: inline-flex;
+      margin-bottom: 16px;
+      color: var(--primary-2);
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 28px;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--muted);
+    }
+
+    .contact-method strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px 16px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text);
+      outline: none;
+      font: inherit;
+      transition: 0.2s ease;
+    }
+
+    textarea {
+      min-height: 152px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(66, 211, 255, 0.7);
+      box-shadow: 0 0 0 4px rgba(66, 211, 255, 0.10);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      max-width: 360px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(7, 17, 31, 0.9);
+      border: 1px solid rgba(86, 240, 184, 0.25);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transform: translateY(28px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 80;
+    }
+
+    body.light .toast {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .articles-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid,
+      .library-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        border-radius: 24px;
+      }
+
+      .menu-btn {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(7, 17, 31, 0.94);
+        backdrop-filter: blur(18px);
+      }
+
+      body.light .nav-links {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 118px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .stats,
+      .projects-grid,
+      .library-grid,
+      .vitals-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark">AP</span>
+        <span>Alan Pablo</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" class="active">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#biblioteca">Biblioteca</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Alternar tema">☾</button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> IA aplicada à saúde, emergência e decisão clínica</div>
+          <h1>Unindo <span class="gradient-text">medicina, engenharia</span> e emergência operacional.</h1>
+          <p>
+            Portfólio de um estudante de medicina, engenheiro eletricista e bombeiro militar dedicado a criar sistemas inteligentes para monitorização clínica, triagem, resposta a emergências e suporte à decisão em saúde.
+          </p>
+          <div class="hero-actions">
+            <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+            <a href="#contato" class="btn btn-secondary">Falar comigo</a>
+          </div>
+          <div class="stats" aria-label="Indicadores de atuação">
+            <div class="stat">
+              <strong>3 áreas</strong>
+              <span>Medicina, engenharia elétrica e emergência.</span>
+            </div>
+            <div class="stat">
+              <strong>IA clínica</strong>
+              <span>Automação, análise e relatórios inteligentes.</span>
+            </div>
+            <div class="stat">
+              <strong>Campo real</strong>
+              <span>Visão prática de atendimento e risco.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Painel de monitorização clínica">
+          <div class="monitor">
+            <div class="monitor-top">
+              <span class="chip">● Sistema em monitoramento</span>
+              <div class="status-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            </div>
+
+            <div class="vitals-grid">
+              <div class="vital">
+                <small>Pressão arterial</small>
+                <strong>128/82</strong><span>mmHg</span>
+              </div>
+              <div class="vital">
+                <small>Frequência cardíaca</small>
+                <strong>74</strong><span>bpm</span>
+              </div>
+              <div class="vital">
+                <small>Risco estimado</small>
+                <strong>Baixo</strong>
+              </div>
+              <div class="vital">
+                <small>Coletas hoje</small>
+                <strong>06</strong><span>/06</span>
+              </div>
+            </div>
+
+            <div class="wave" aria-hidden="true">
+              <svg viewBox="0 0 900 120" preserveAspectRatio="none">
+                <polyline points="0,70 60,70 78,70 88,38 100,92 114,70 180,70 205,70 220,56 235,78 250,70 330,70 350,70 365,30 380,96 395,70 470,70 492,70 505,58 522,78 540,70 620,70 640,70 658,35 672,95 690,70 760,70 785,70 798,59 815,80 835,70 900,70" fill="none" stroke="#56f0b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <p class="triage-note">
+              IA não substitui o profissional: ela organiza sinais, contexto e tendências para apoiar decisões mais rápidas, seguras e rastreáveis.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Sobre</div>
+            <h2>Perfil híbrido para problemas complexos.</h2>
+          </div>
+          <p>Minha atuação fica na intersecção entre ciência médica, sistemas eletrônicos, automação, dados clínicos e resposta em cenários críticos.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="profile-card reveal">
+            <div class="avatar">
+              <img src="imagens/alan-pablo.png" alt="Foto profissional de Alan Pablo">
+            </div>
+            <h3>Alan Pablo</h3>
+            <p>
+              Estudante de medicina, engenheiro eletricista e bombeiro militar. Desenvolvo soluções que conectam conhecimento técnico, raciocínio fisiológico e experiência operacional em emergência.
+            </p>
+            <div class="profile-actions">
+              <a href="http://lattes.cnpq.br/0556335546544836" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Currículo Lattes</a>
+              <a href="#contato" class="btn btn-secondary">Contato</a>
+            </div>
+            <div class="tags">
+              <span class="tag">IA em saúde</span>
+              <span class="tag">Monitorização clínica</span>
+              <span class="tag">Emergência</span>
+              <span class="tag">Automação</span>
+              <span class="tag">Triagem inteligente</span>
+              <span class="tag">Sistemas embarcados</span>
+            </div>
+          </article>
+
+          <div class="about-text reveal">
+            <p>
+              Meu objetivo é criar tecnologias que transformem dados brutos em informação útil: sinais vitais, sintomas, contexto alimentar, atividade física, medicação, evolução temporal e risco operacional.
+            </p>
+            <div class="timeline">
+              <div class="timeline-item">
+                <time>Medicina</time>
+                <div>
+                  <h4>Raciocínio clínico e fisiologia aplicada</h4>
+                  <p>Estudo da base biológica por trás dos sinais, sintomas, mecanismos de doença e decisões terapêuticas.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <time>Engenharia</time>
+                <div>
+                  <h4>Sistemas, controle e automação</h4>
+                  <p>Modelagem de processos, sensores, sinais, lógica de decisão, software e integração entre plataformas.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <time>Emergência</time>
+                <div>
+                  <h4>Tomada de decisão sob pressão</h4>
+                  <p>Visão prática de atendimento, risco, priorização e comunicação em ambientes reais de urgência.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Projetos</div>
+            <h2>Soluções inteligentes.</h2>
+          </div>
+          <p>Projetos conceituais e práticos que combinam IA, automação, análise de sinais e fluxos de atendimento.</p>
+        </div>
+
+        <div class="filter-row reveal" aria-label="Filtros de projetos">
+          <button class="filter-btn active" data-filter="all" type="button">Todos</button>
+          <button class="filter-btn" data-filter="saude" type="button">Saúde</button>
+          <button class="filter-btn" data-filter="emergencia" type="button">Emergência</button>
+          <button class="filter-btn" data-filter="ia" type="button">IA</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="ia saude">
+            <div>
+              <div class="project-icon">🩺</div>
+              <h3>Vigilância Hipertensiva Inteligente</h3>
+              <p>Fluxo no n8n para automatizar o registro seriado da pressão arterial, organizar contexto clínico e gerar alertas ou relatórios de acompanhamento.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-meta"><span>n8n</span><span>Automação</span><span>Saúde</span></div>
+              <a href="#contato" class="btn btn-secondary">Conversar sobre o fluxo</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="ia saude">
+            <div>
+              <div class="project-icon">🔗</div>
+              <h3>Enemetria</h3>
+              <p>Portal externo associado ao ecossistema de projetos, conteúdos e soluções digitais conectadas à educação, tecnologia e análise inteligente.</p>
+            </div>
+            <div class="project-footer">
+              <div class="project-meta"><span>Site externo</span><span>Projeto</span><span>Conteúdo</span></div>
+              <a href="https://enemetria.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Acessar Enemetria</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="biblioteca">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Ensaios tecnocientíficos</div>
+            <h2>Ensaios tecnocientíficos.</h2>
+          </div>
+          <p>Ensaios e cadernos visuais autorais conectando medicina, engenharia, tecnologia e raciocínio científico.</p>
+        </div>
+
+        <div class="library-grid">
+          <article class="pdf-card reveal expandable" tabindex="0" role="button" aria-expanded="false">
+            <div>
+              <div class="pdf-icon">🧠</div>
+              <h3>O Que uma Crise Epiléptica e um Computador Travado Têm em Comum?</h3>
+              <p>Ensaio visual comparando descargas elétricas neuronais, falhas em sistemas eletrônicos e mecanismos de proteção contra panes em cadeia.</p>
+              <div class="pdf-summary" aria-hidden="true">
+                <p>Quem já presenciou uma crise epiléptica sabe o quanto a cena impressiona. Mas o que acontece dentro do cérebro durante esses momentos pode ser entendido por meio de uma analogia surpreendentemente simples: um curto-circuito em um sistema eletrônico.</p>
+                <p>Tudo começa quando um grupo de neurônios passa a disparar sinais elétricos de forma descontrolada. Isso pode acontecer por diversos motivos, como lesões cerebrais, cicatrizes deixadas por traumas, tumores ou outras alterações que tornam aquela região mais instável eletricamente. Esses disparos anormais acabam estimulando neurônios vizinhos, que passam a fazer a mesma coisa. Em poucos instantes, a atividade elétrica se espalha como uma reação em cadeia.</p>
+                <p>É parecido com o que acontece em um computador quando um componente eletrônico sofre uma falha. Imagine que, após uma oscilação de energia ou um defeito interno, uma placa comece a enviar sinais incorretos para a placa-mãe. Esses sinais defeituosos trafegam pelos barramentos de comunicação, interferem nos demais componentes e acabam comprometendo o funcionamento do sistema inteiro. O mouse para de responder, o áudio fica distorcido, programas travam e, em casos extremos, surge a famosa tela azul da morte.</p>
+                <p>No cérebro, o resultado também é uma pane geral. Só que, em vez de travamentos de software, surgem sintomas como perda de consciência, movimentos involuntários, convulsões e alterações temporárias da percepção.</p>
+                <p>A parte mais interessante é que tanto os computadores quanto o cérebro possuem mecanismos de proteção. Em uma instalação elétrica, fusíveis e disjuntores interrompem a corrente quando detectam uma sobrecarga. O objetivo é simples: impedir que uma falha localizada destrua todo o sistema.</p>
+                <p>O cérebro faz algo parecido. Durante uma crise, mecanismos químicos entram em ação para tentar frear a atividade elétrica excessiva. Neurotransmissores inibitórios, como o GABA, funcionam como uma espécie de "freio de emergência", reduzindo a comunicação entre neurônios e dificultando a propagação da descarga elétrica. É como se um disjuntor biológico tentasse conter a pane antes que ela atingisse áreas ainda maiores.</p>
+                <p>As semelhanças não param por aí. Quando um defeito eletrônico é grave e não pode ser eliminado facilmente, um técnico pode optar por isolar o componente problemático do restante do circuito. Na medicina existe uma estratégia semelhante para casos extremos de epilepsia: a calosotomia.</p>
+                <p>Nessa cirurgia, os médicos interrompem parte das conexões do corpo caloso, a estrutura responsável por ligar os dois hemisférios cerebrais. Na prática, é como cortar uma importante linha de comunicação entre dois setores de uma rede elétrica. Se a descarga elétrica começa em um lado do cérebro, ela encontra muito mais dificuldade para atravessar para o outro.</p>
+                <p>A origem do problema pode continuar existindo, mas a sua capacidade de se espalhar diminui drasticamente. É a mesma lógica usada na engenharia quando não é possível eliminar completamente uma falha: isolar a pane para impedir que ela comprometa todo o sistema.</p>
+                <p>A ideia de que uma crise epiléptica pode ser compreendida com conceitos semelhantes aos de um curto-circuito eletrônico parece improvável à primeira vista. Mas quanto mais se explora essa comparação, mais conexões surgem.</p>
+                <p><strong>Quer ver até onde essa analogia pode chegar?</strong> Baixe gratuitamente o ensaio científico completo em PDF e descubra como cérebro, eletrônica e teoria dos sistemas compartilham princípios muito mais parecidos do que imaginamos.</p>
+              </div>
+            </div>
+            <div class="pdf-footer">
+              <div class="pdf-tags"><span>Neurociência</span><span>Eletrônica</span><span>Epilepsia</span></div>
+              <a href="pdfs/Neural_Hardware.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Abrir PDF</a>
+            </div>
+          </article>
+
+          <article class="pdf-card reveal expandable" tabindex="0" role="button" aria-expanded="false">
+            <div>
+              <div class="pdf-icon">⚡</div>
+              <h3>Arco Reflexo e Suspensão Ativa da Ferrari</h3>
+              <p>Ensaio tecnocientífico comparando o arco reflexo humano com sistemas de controle rápido em suspensão ativa veicular.</p>
+              <div class="pdf-summary" aria-hidden="true">
+                <p>Uma curiosidade fascinante: o corpo humano e um dos carros mais avançados da Ferrari chegaram à mesma solução para resolver um problema de velocidade de resposta, mesmo tendo sido projetados de formas completamente diferentes.</p>
+                <p>Quando você toca em algo muito quente, sua mão se afasta antes mesmo de você perceber conscientemente a dor. Isso acontece porque a medula espinhal toma a decisão localmente, sem esperar uma ordem do cérebro. Esse mecanismo é chamado de arco reflexo.</p>
+                <p>A Ferrari enfrentou um desafio parecido em sua suspensão ativa. Se todos os sensores do carro enviassem informações para um único computador central antes de agir, a resposta seria lenta demais. Por isso, cada amortecedor possui seu próprio microcontrolador, capaz de tomar decisões localmente e corrigir a suspensão quase instantaneamente.</p>
+                <p>O mais interessante é que a natureza e a engenharia chegaram independentemente à mesma conclusão: quando a velocidade é crítica, centralizar tudo não funciona. A melhor solução é distribuir a inteligência para perto de onde a ação acontece. No corpo humano, isso protege a vida. Na Ferrari, isso mantém o carro estável e seguro em altas velocidades.</p>
+                <p>Se essa comparação despertou sua curiosidade, leia o ensaio científico completo em PDF e explore como neurociência, engenharia e computação convergem para um mesmo princípio universal: a inteligência distribuída na borda do sistema.</p>
+              </div>
+            </div>
+            <div class="pdf-footer">
+              <div class="pdf-tags"><span>Fisiologia</span><span>Engenharia</span><span>Controle</span></div>
+              <a href="pdfs/arco-reflexo-ferrari.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Abrir PDF</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="artigos">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Artigos</div>
+            <h2>Ideias, estudos e publicações.</h2>
+          </div>
+          <p>Textos sobre fisiologia, IA, emergência, tecnologia médica e como sistemas inteligentes podem apoiar o cuidado.</p>
+        </div>
+
+        <div class="articles-grid">
+          <article class="article-card article-featured reveal">
+            <span class="date">Artigo em destaque</span>
+            <h3>IA na monitorização clínica: do dado isolado à tendência interpretável</h3>
+            <p>Uma reflexão sobre como a coleta seriada, o contexto do paciente e agentes inteligentes podem gerar relatórios mais úteis para profissionais de saúde.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Contato</div>
+            <h2>Vamos construir algo útil para saúde real?</h2>
+          </div>
+          <p>Entre em contato para projetos, parcerias, pesquisa, protótipos, automações ou produção de conteúdo científico.</p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-card reveal">
+            <h3>Conecte-se</h3>
+            <p>Disponível para colaboração em IA aplicada à saúde, monitorização clínica, educação médica, emergência e sistemas inteligentes.</p>
+            <div class="contact-methods">
+              <a class="contact-method" href="mailto:contato@seudominio.com">
+                <span>✉️</span>
+                <span><strong>Email</strong>contato@seudominio.com</span>
+              </a>
+              <a class="contact-method" href="http://lattes.cnpq.br/0556335546544836" target="_blank" rel="noopener noreferrer">
+                <span>🎓</span>
+                <span><strong>Currículo Lattes</strong>lattes.cnpq.br/0556335546544836</span>
+              </a>
+              <a class="contact-method" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                <span>💼</span>
+                <span><strong>LinkedIn</strong>linkedin.com/in/seu-perfil</span>
+              </a>
+              <a class="contact-method" href="https://github.com/alanpablo7" target="_blank" rel="noopener noreferrer">
+                <span>💻</span>
+                <span><strong>GitHub</strong>github.com/alanpablo7</span>
+              </a>
+            </div>
+          </aside>
+
+          <div class="contact-card reveal">
+            <form id="contactForm">
+              <div class="form-row">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu email" required>
+              </div>
+              <input type="text" name="assunto" placeholder="Assunto" required>
+              <textarea name="mensagem" placeholder="Conte rapidamente sobre sua ideia, projeto ou proposta" required></textarea>
+              <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Alan Pablo. IA, saúde, engenharia e emergência.</p>
+      <p>Construído com HTML, CSS e JavaScript.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('main section[id]');
+    const revealItems = document.querySelectorAll('.reveal');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const pdfCards = document.querySelectorAll('.pdf-card.expandable');
+    const contactForm = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeToggle.textContent = '☀';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      themeToggle.textContent = isLight ? '☀' : '☾';
+      localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+    });
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuBtn.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
+
+    sections.forEach(section => activeObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+        projectCards.forEach(card => {
+          const categories = card.dataset.category || '';
+          const shouldShow = filter === 'all' || categories.includes(filter);
+          card.style.display = shouldShow ? 'flex' : 'none';
+        });
+      });
+    });
+
+    pdfCards.forEach(card => {
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
+
+        const isExpanded = card.classList.toggle('expanded');
+        card.setAttribute('aria-expanded', String(isExpanded));
+        const summary = card.querySelector('.pdf-summary');
+        if (summary) summary.setAttribute('aria-hidden', String(!isExpanded));
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        card.click();
+      });
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3600);
+    }
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(contactForm);
+      const nome = data.get('nome');
+      showToast(`Obrigado, ${nome}. Esta é uma demonstração visual; conecte o formulário ao seu backend ou serviço de email.`);
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
