@@ -247,6 +247,57 @@
       line-height: 1.75;
     }
 
+    .hero-summary {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+      max-width: 690px;
+    }
+
+    .hero-summary p {
+      margin-top: 0;
+    }
+
+    .hero-highlights {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-highlight {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .hero-highlight-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(66, 211, 255, 0.12);
+      color: var(--primary-2);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .hero-highlight strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .hero-highlight span:last-child {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1088,6 +1139,14 @@
       .timeline-item {
         grid-template-columns: 1fr;
       }
+
+      .hero-summary {
+        gap: 14px;
+      }
+
+      .hero-highlight {
+        padding: 14px;
+      }
     }
   </style>
 </head>
@@ -1121,13 +1180,19 @@
         <div class="hero-copy reveal">
           <div class="eyebrow"><span class="pulse-dot"></span> IA aplicada à saúde, emergência e decisão clínica</div>
           <h1>Unindo <span class="gradient-text">medicina, inteligência artificial</span> e urgência operacional.</h1>
-          <p>
-            Espaço de um acadêmico de medicina, engenheiro eletricista e bombeiro militar dedicado a conectar tecnologia de ponta ao salvamento de vidas.
-            <br><br>
-            <strong>Sistemas Inteligentes:</strong> Desenvolvimento de soluções em IA para triagem, monitorização clínica e suporte à decisão em saúde.
-            <br>
-            <strong>Casos & Ensaios:</strong> Publicações científicas e análises técnicas na intersecção entre engenharia e medicina, incluindo a vivência prática em emergências operacionais.
-          </p>
+          <div class="hero-summary">
+            <p>Espaço de um acadêmico de medicina, engenheiro eletricista e bombeiro militar dedicado a conectar tecnologia de ponta ao salvamento de vidas.</p>
+            <div class="hero-highlights" aria-label="Áreas de atuação em destaque">
+              <div class="hero-highlight">
+                <span class="hero-highlight-icon">01</span>
+                <span><strong>Sistemas Inteligentes</strong>Desenvolvimento de soluções em IA para triagem, monitorização clínica e suporte à decisão em saúde.</span>
+              </div>
+              <div class="hero-highlight">
+                <span class="hero-highlight-icon">02</span>
+                <span><strong>Casos & Ensaios</strong>Publicações científicas e análises técnicas na intersecção entre engenharia e medicina, incluindo a vivência prática em emergências operacionais.</span>
+              </div>
+            </div>
+          </div>
           <div class="hero-actions">
             <a href="#projetos" class="btn btn-primary">Ver projetos</a>
             <a href="#contato" class="btn btn-secondary">Falar comigo</a>
