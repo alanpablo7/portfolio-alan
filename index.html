@@ -183,18 +183,18 @@
     }
 
     .hero {
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
       padding: 132px 0 76px;
       position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 46px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .hero-copy {
+      max-width: 1120px;
     }
 
     .eyebrow {
@@ -226,10 +226,11 @@
     }
 
     h1 {
-      max-width: 830px;
-      font-size: clamp(2.65rem, 7vw, 5.95rem);
-      line-height: 0.96;
-      letter-spacing: -0.075em;
+      max-width: 1120px;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .gradient-text {
@@ -248,54 +249,23 @@
     }
 
     .hero-summary {
-      display: grid;
-      gap: 18px;
       margin-top: 24px;
-      max-width: 690px;
+      max-width: 760px;
     }
 
     .hero-summary p {
       margin-top: 0;
     }
 
-    .hero-highlights {
-      display: grid;
-      gap: 12px;
-    }
-
-    .hero-highlight {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 15px 16px;
+    .hero-signal {
+      position: relative;
+      margin-top: 30px;
+      padding: 12px;
       border: 1px solid var(--line);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.055);
-    }
-
-    .hero-highlight-icon {
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: rgba(66, 211, 255, 0.12);
-      color: var(--primary-2);
-      font-size: 0.9rem;
-      font-weight: 900;
-    }
-
-    .hero-highlight strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-      font-size: 0.98rem;
-    }
-
-    .hero-highlight span:last-child {
-      color: var(--muted);
-      line-height: 1.65;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
     }
 
     .hero-actions {
@@ -335,114 +305,9 @@
       transform: translateY(-2px);
     }
 
-    .hero-card {
-      position: relative;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    body.light .hero-card {
-      background: rgba(255, 255, 255, 0.88);
-    }
-
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      background: radial-gradient(circle at top, rgba(66, 211, 255, 0.25), transparent 42%);
-      pointer-events: none;
-    }
-
-    .monitor {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(2, 8, 18, 0.58);
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    body.light .monitor {
-      background: #0b1625;
-      color: #ecf4ff;
-    }
-
-    .monitor-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(86, 240, 184, 0.10);
-      color: #baffdf;
-      font-size: 0.78rem;
-      font-weight: 800;
-    }
-
-    .status-bars {
-      display: flex;
-      gap: 6px;
-    }
-
-    .status-bars span {
-      width: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-      opacity: 0.75;
-    }
-
-    .status-bars span:nth-child(1) { height: 18px; }
-    .status-bars span:nth-child(2) { height: 28px; background: var(--primary-2); }
-    .status-bars span:nth-child(3) { height: 22px; background: var(--warning); }
-    .status-bars span:nth-child(4) { height: 34px; background: var(--danger); }
-
-    .vitals-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .vital {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .vital small {
-      display: block;
-      color: #8da2bc;
-      font-size: 0.76rem;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .vital strong {
-      font-size: 1.8rem;
-      letter-spacing: -0.06em;
-    }
-
-    .vital span {
-      color: #8da2bc;
-      font-size: 0.78rem;
-      margin-left: 4px;
-    }
-
     .wave {
-      height: 112px;
-      border-radius: 18px;
+      height: 132px;
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background:
         linear-gradient(rgba(66, 211, 255, 0.07) 1px, transparent 1px),
@@ -463,17 +328,6 @@
     @keyframes ecg {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
-    }
-
-    .triage-note {
-      margin-top: 16px;
-      padding: 15px;
-      border: 1px solid rgba(86, 240, 184, 0.18);
-      border-radius: 18px;
-      background: rgba(86, 240, 184, 0.08);
-      color: #d8ffee;
-      line-height: 1.55;
-      font-size: 0.92rem;
     }
 
     .stats {
@@ -627,7 +481,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 22px;
+      margin-top: 10px;
+    }
+
+    .interests-label {
+      margin-top: 24px;
+      color: var(--primary-2);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .tag {
@@ -1126,7 +989,6 @@
       .stats,
       .projects-grid,
       .library-grid,
-      .vitals-grid,
       .form-row {
         grid-template-columns: 1fr;
       }
@@ -1140,12 +1002,16 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-summary {
-        gap: 14px;
+      h1 {
+        font-size: clamp(2.35rem, 11vw, 3.5rem);
       }
 
-      .hero-highlight {
-        padding: 14px;
+      .hero-signal {
+        margin-top: 24px;
+      }
+
+      .wave {
+        height: 104px;
       }
     }
   </style>
@@ -1182,20 +1048,17 @@
           <h1>Unindo <span class="gradient-text">medicina, inteligência artificial</span> e urgência operacional.</h1>
           <div class="hero-summary">
             <p>Espaço de um acadêmico de medicina, engenheiro eletricista e bombeiro militar dedicado a conectar tecnologia de ponta ao salvamento de vidas.</p>
-            <div class="hero-highlights" aria-label="Áreas de atuação em destaque">
-              <div class="hero-highlight">
-                <span class="hero-highlight-icon">01</span>
-                <span><strong>Sistemas Inteligentes</strong>Desenvolvimento de soluções em IA para triagem, monitorização clínica e suporte à decisão em saúde.</span>
-              </div>
-              <div class="hero-highlight">
-                <span class="hero-highlight-icon">02</span>
-                <span><strong>Casos & Ensaios</strong>Publicações científicas e análises técnicas na intersecção entre engenharia e medicina, incluindo a vivência prática em emergências operacionais.</span>
-              </div>
-            </div>
           </div>
           <div class="hero-actions">
             <a href="#projetos" class="btn btn-primary">Ver projetos</a>
             <a href="#contato" class="btn btn-secondary">Falar comigo</a>
+          </div>
+          <div class="hero-signal" role="img" aria-label="Gráfico animado de frequência cardíaca">
+            <div class="wave" aria-hidden="true">
+              <svg viewBox="0 0 900 120" preserveAspectRatio="none">
+                <polyline points="0,70 60,70 78,70 88,38 100,92 114,70 180,70 205,70 220,56 235,78 250,70 330,70 350,70 365,30 380,96 395,70 470,70 492,70 505,58 522,78 540,70 620,70 640,70 658,35 672,95 690,70 760,70 785,70 798,59 815,80 835,70 900,70" fill="none" stroke="#56f0b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
           </div>
           <div class="stats" aria-label="Indicadores de atuação">
             <div class="stat">
@@ -1212,44 +1075,6 @@
             </div>
           </div>
         </div>
-
-        <aside class="hero-card reveal" aria-label="Painel de monitorização clínica">
-          <div class="monitor">
-            <div class="monitor-top">
-              <span class="chip">● Sistema em monitoramento</span>
-              <div class="status-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            </div>
-
-            <div class="vitals-grid">
-              <div class="vital">
-                <small>Pressão arterial</small>
-                <strong>128/82</strong><span>mmHg</span>
-              </div>
-              <div class="vital">
-                <small>Frequência cardíaca</small>
-                <strong>74</strong><span>bpm</span>
-              </div>
-              <div class="vital">
-                <small>Risco estimado</small>
-                <strong>Baixo</strong>
-              </div>
-              <div class="vital">
-                <small>Coletas hoje</small>
-                <strong>06</strong><span>/06</span>
-              </div>
-            </div>
-
-            <div class="wave" aria-hidden="true">
-              <svg viewBox="0 0 900 120" preserveAspectRatio="none">
-                <polyline points="0,70 60,70 78,70 88,38 100,92 114,70 180,70 205,70 220,56 235,78 250,70 330,70 350,70 365,30 380,96 395,70 470,70 492,70 505,58 522,78 540,70 620,70 640,70 658,35 672,95 690,70 760,70 785,70 798,59 815,80 835,70 900,70" fill="none" stroke="#56f0b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-
-            <p class="triage-note">
-              IA não substitui o profissional: ela organiza sinais, contexto e tendências para apoiar decisões mais rápidas, seguras e rastreáveis.
-            </p>
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -1276,13 +1101,14 @@
               <a href="http://lattes.cnpq.br/0556335546544836" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Currículo Lattes</a>
               <a href="#contato" class="btn btn-secondary">Contato</a>
             </div>
+            <div class="interests-label">Interesses</div>
             <div class="tags">
               <span class="tag">IA em saúde</span>
               <span class="tag">Monitorização clínica</span>
               <span class="tag">Emergência</span>
               <span class="tag">Automação</span>
               <span class="tag">Triagem inteligente</span>
-              <span class="tag">Sistemas embarcados</span>
+              <span class="tag">Tecnologias Embarcadas Aplicadas à Medicina</span>
             </div>
           </article>
 
