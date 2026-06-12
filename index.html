@@ -637,6 +637,69 @@
       font-weight: 800;
     }
 
+    .video-feature {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .video-player {
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #020812;
+      box-shadow: var(--shadow);
+    }
+
+    .video-player iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+
+    .video-details {
+      max-width: 620px;
+    }
+
+    .video-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      color: var(--primary-2);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .video-label::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ff0033;
+      box-shadow: 0 0 0 6px rgba(255, 0, 51, 0.1);
+    }
+
+    .video-details h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    .video-details p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .video-details .btn {
+      margin-top: 24px;
+    }
+
     .library-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -928,8 +991,13 @@
       .hero-grid,
       .about-grid,
       .articles-grid,
-      .contact-grid {
+      .contact-grid,
+      .video-feature {
         grid-template-columns: 1fr;
+      }
+
+      .video-player {
+        width: min(100%, 360px);
       }
 
       .projects-grid,
@@ -1013,6 +1081,19 @@
       .wave {
         height: 104px;
       }
+
+      .video-player {
+        width: min(100%, 320px);
+        margin-inline: auto;
+      }
+
+      .video-details {
+        text-align: center;
+      }
+
+      .video-label {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -1028,6 +1109,7 @@
         <li><a href="#inicio" class="active">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#videos">Vídeos</a></li>
         <li><a href="#biblioteca">Biblioteca</a></li>
         <li><a href="#artigos">Artigos</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -1186,6 +1268,36 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Vídeos</div>
+            <h2>Conteúdo em movimento.</h2>
+          </div>
+          <p>Vídeos curtos sobre medicina, tecnologia, inteligência artificial e experiências que conectam conhecimento técnico à prática.</p>
+        </div>
+
+        <article class="video-feature reveal">
+          <div class="video-player">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/_pypxWD-3Zs"
+              title="Vídeo em destaque no YouTube"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-details">
+            <div class="video-label">YouTube Shorts</div>
+            <h3>Vídeo em destaque</h3>
+            <p>Um espaço para compartilhar ideias, experiências e conexões entre medicina, engenharia, inteligência artificial e atuação em urgência.</p>
+            <a href="https://youtube.com/shorts/_pypxWD-3Zs?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Assistir no YouTube</a>
+          </div>
+        </article>
       </div>
     </section>
 
