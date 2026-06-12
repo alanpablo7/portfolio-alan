@@ -637,6 +637,170 @@
       font-weight: 800;
     }
 
+    .project-showcase {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .project-gallery {
+      min-width: 0;
+      padding: 18px;
+      background: rgba(2, 8, 18, 0.5);
+    }
+
+    body.light .project-gallery {
+      background: rgba(15, 23, 42, 0.055);
+    }
+
+    .project-slides {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #eef0ec;
+    }
+
+    .project-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease;
+    }
+
+    .project-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      background: rgba(7, 17, 31, 0.82);
+      color: #fff;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transform: translateY(-50%);
+      backdrop-filter: blur(10px);
+    }
+
+    .gallery-arrow:hover {
+      background: rgba(7, 17, 31, 0.96);
+    }
+
+    .gallery-arrow.prev {
+      left: 12px;
+    }
+
+    .gallery-arrow.next {
+      right: 12px;
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .gallery-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--muted);
+      opacity: 0.4;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .gallery-dot.active {
+      width: 25px;
+      border-radius: 999px;
+      background: var(--primary-2);
+      opacity: 1;
+    }
+
+    .project-presentation {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-presentation h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      letter-spacing: -0.04em;
+    }
+
+    .project-presentation > p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .project-points {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+      list-style: none;
+    }
+
+    .project-points li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .project-points li::before {
+      content: '✓';
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .project-downloads {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .project-downloads .btn {
+      min-height: 42px;
+      padding: 0 14px;
+      font-size: 0.86rem;
+    }
+
+    .project-download-note {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
     .video-feature {
       display: grid;
       grid-template-columns: minmax(260px, 360px) 1fr;
@@ -992,6 +1156,7 @@
       .about-grid,
       .articles-grid,
       .contact-grid,
+      .project-showcase,
       .video-feature {
         grid-template-columns: 1fr;
       }
@@ -1093,6 +1258,18 @@
 
       .video-label {
         justify-content: center;
+      }
+
+      .project-gallery {
+        padding: 12px;
+      }
+
+      .project-presentation {
+        padding: 24px;
+      }
+
+      .project-downloads .btn {
+        width: 100%;
       }
     }
   </style>
@@ -1244,19 +1421,60 @@
         </div>
 
         <div class="projects-grid">
-          <article class="project-card reveal" data-category="ia saude">
-            <div>
-              <div class="project-icon">🩺</div>
-              <h3>Vigilância Hipertensiva Inteligente</h3>
-              <p>Fluxo no n8n para automatizar o registro seriado da pressão arterial, organizar contexto clínico e gerar alertas ou relatórios de acompanhamento.</p>
+          <article class="project-showcase reveal" data-project data-category="ia saude">
+            <div class="project-gallery" data-gallery tabindex="0" aria-label="Galeria do projeto Monitor Hipertensivo 1.9">
+              <div class="project-slides">
+                <figure class="project-slide active" aria-hidden="false">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-01.webp" alt="Capa da apresentação Monitor Hipertensivo 1.9">
+                </figure>
+                <figure class="project-slide" aria-hidden="true">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-03.webp" alt="Arquitetura conceitual do Monitor Hipertensivo">
+                </figure>
+                <figure class="project-slide" aria-hidden="true">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-04.webp" alt="Entradas multimodais por texto, áudio e imagem">
+                </figure>
+                <figure class="project-slide" aria-hidden="true">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-08.webp" alt="Painel de métricas diárias e variabilidade">
+                </figure>
+                <figure class="project-slide" aria-hidden="true">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-12.webp" alt="Exemplo de relatório semântico produzido pelo sistema">
+                </figure>
+                <figure class="project-slide" aria-hidden="true">
+                  <img src="imagens/projetos/monitor-hipertensivo/monitor-slide-14.webp" alt="Quatro pilares do Monitor Hipertensivo 1.9">
+                </figure>
+                <button class="gallery-arrow prev" type="button" aria-label="Imagem anterior">‹</button>
+                <button class="gallery-arrow next" type="button" aria-label="Próxima imagem">›</button>
+              </div>
+              <div class="gallery-dots" aria-label="Selecionar imagem da galeria">
+                <button class="gallery-dot active" type="button" aria-label="Mostrar imagem 1" aria-current="true"></button>
+                <button class="gallery-dot" type="button" aria-label="Mostrar imagem 2"></button>
+                <button class="gallery-dot" type="button" aria-label="Mostrar imagem 3"></button>
+                <button class="gallery-dot" type="button" aria-label="Mostrar imagem 4"></button>
+                <button class="gallery-dot" type="button" aria-label="Mostrar imagem 5"></button>
+                <button class="gallery-dot" type="button" aria-label="Mostrar imagem 6"></button>
+              </div>
             </div>
-            <div class="project-footer">
-              <div class="project-meta"><span>n8n</span><span>Automação</span><span>Saúde</span></div>
-              <a href="#contato" class="btn btn-secondary">Conversar sobre o fluxo</a>
+            <div class="project-presentation">
+              <div class="section-kicker">Projeto em destaque</div>
+              <h3>Vigilância Hipertensiva Inteligente</h3>
+              <p>O Monitor Hipertensivo 1.9 transforma medições domiciliares de pressão arterial em um protocolo seriado e organizado. Pelo WhatsApp, o paciente envia dados por texto, áudio ou foto; o fluxo em n8n valida as coletas, calcula médias, identifica inconsistências e produz relatórios interpretativos para apoiar o acompanhamento profissional.</p>
+              <ul class="project-points">
+                <li>Protocolo de 5 dias, com 6 coletas diárias e 3 medições por sessão.</li>
+                <li>Entrada multimodal, auditoria de erros e descarte de medidas suspeitas.</li>
+                <li>Análise de médias, variabilidade, horários e contexto clínico relatado.</li>
+                <li>Relatório final explicativo, sem substituir avaliação ou diagnóstico médico.</li>
+              </ul>
+              <div class="project-meta"><span>n8n</span><span>OpenAI</span><span>WhatsApp</span><span>Google Sheets</span></div>
+              <div class="project-downloads">
+                <a href="arquivos/monitor-hipertensivo/precision-hypertension-intelligence.pdf" download class="btn btn-primary">Baixar apresentação</a>
+                <a href="arquivos/monitor-hipertensivo/manual-monitor-hipertensivo.pdf" download class="btn btn-secondary">Baixar manual</a>
+                <a href="arquivos/monitor-hipertensivo/monitor-hipertensivo-1.9-template.json" download class="btn btn-secondary">Baixar fluxo n8n</a>
+              </div>
+              <p class="project-download-note">O template público do n8n não inclui credenciais nem endereços internos. As integrações devem ser configuradas após a importação.</p>
             </div>
           </article>
 
-          <article class="project-card reveal" data-category="ia saude">
+          <article class="project-card reveal" data-project data-category="ia saude">
             <div>
               <div class="project-icon">🔗</div>
               <h3>Enemetria</h3>
@@ -1447,7 +1665,8 @@
     const sections = document.querySelectorAll('main section[id]');
     const revealItems = document.querySelectorAll('.reveal');
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('[data-project]');
+    const projectGalleries = document.querySelectorAll('[data-gallery]');
     const pdfCards = document.querySelectorAll('.pdf-card.expandable');
     const contactForm = document.getElementById('contactForm');
     const toast = document.getElementById('toast');
@@ -1511,8 +1730,44 @@
         projectCards.forEach(card => {
           const categories = card.dataset.category || '';
           const shouldShow = filter === 'all' || categories.includes(filter);
-          card.style.display = shouldShow ? 'flex' : 'none';
+          card.hidden = !shouldShow;
         });
+      });
+    });
+
+    projectGalleries.forEach(gallery => {
+      const slides = gallery.querySelectorAll('.project-slide');
+      const dots = gallery.querySelectorAll('.gallery-dot');
+      const previousButton = gallery.querySelector('.gallery-arrow.prev');
+      const nextButton = gallery.querySelector('.gallery-arrow.next');
+      let currentSlide = 0;
+
+      const showSlide = (index) => {
+        currentSlide = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === currentSlide;
+          slide.classList.toggle('active', isActive);
+          slide.setAttribute('aria-hidden', String(!isActive));
+        });
+        dots.forEach((dot, dotIndex) => {
+          const isActive = dotIndex === currentSlide;
+          dot.classList.toggle('active', isActive);
+          if (isActive) {
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      previousButton.addEventListener('click', () => showSlide(currentSlide - 1));
+      nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+      });
+      gallery.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        if (event.key === 'ArrowRight') showSlide(currentSlide + 1);
       });
     });
 
