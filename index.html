@@ -965,6 +965,33 @@
       opacity: 1;
     }
 
+    .case-grid {
+      display: grid;
+    }
+
+    .case-card {
+      min-height: 0;
+    }
+
+    .case-card.expanded .pdf-summary {
+      max-height: 6000px;
+    }
+
+    .case-image {
+      width: min(100%, 560px);
+      margin: 8px auto 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg-soft);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+    }
+
+    .case-image img {
+      width: 100%;
+      height: auto;
+    }
+
     .pdf-summary p {
       line-height: 1.78;
     }
@@ -1487,7 +1514,7 @@
                 <time>Emergência</time>
                 <div>
                   <h4>Tomada de decisão sob pressão</h4>
-                  <p>Três anos de atuação no 7º Batalhão, em Campina Grande, e atuação atual no 10º Batalhão, em Catolé do Rocha.</p>
+                  <p>Possuo três anos de experiência operacional no 7º Batalhão de Bombeiro Militar, em Campina Grande, atuando nas equipes de Busca e Salvamento, Resgate e Atendimento Pré-Hospitalar (APH). Atualmente, há mais de dois anos, exerço minhas atividades no 10º Batalhão de Bombeiro Militar, em Catolé do Rocha, integrando a equipe de Resgate com atuação em Atendimento Pré-Hospitalar, participando de ocorrências clínicas, traumáticas e operações de emergência.</p>
                 </div>
               </div>
             </div>
@@ -1642,6 +1669,44 @@
             <div class="pdf-footer">
               <div class="pdf-tags"><span>Fisiologia</span><span>Engenharia</span><span>Controle</span></div>
               <a href="pdfs/arco-reflexo-ferrari.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Abrir PDF</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos-emergencias">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Vivência operacional</div>
+            <h2>Estudos de Caso em Emergências</h2>
+          </div>
+          <p>Relatos de ocorrências que conectam Atendimento Pré-Hospitalar, interpretação de dados e conhecimento técnico dos equipamentos.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="pdf-card case-card reveal expandable" tabindex="0" role="button" aria-expanded="false">
+            <div>
+              <div class="pdf-icon">▥</div>
+              <h3>40%, 60%, 55%... O que aqueles números realmente significavam?</h3>
+              <p>Em uma ocorrência de resgate, um oxímetro parecia apresentar defeito. Na verdade, ele estava revelando algo muito mais grave sobre o estado da vítima.</p>
+              <div class="pdf-summary" aria-hidden="true">
+                <figure class="case-image">
+                  <img src="imagens/estudos-de-caso/oximetro-vt200b.jpg" alt="Oxímetro de pulso VT200B utilizado em Atendimento Pré-Hospitalar">
+                </figure>
+                <p>Como bombeiro militar, atuo frequentemente no Atendimento Pré-Hospitalar (APH), participando tanto de ocorrências clínicas quanto traumáticas. Ao longo dessa experiência, percebi que informações valiosas podem ser ignoradas quando os profissionais não conhecem profundamente as características dos equipamentos que utilizam diariamente.</p>
+                <p>Minha formação em Engenharia Elétrica me ensinou que nenhum instrumento de medição deve ser interpretado sem que se conheçam suas especificações técnicas, em engenharia, é comum consultar os datasheets (manuais técnicos dos equipamentos) para entender parâmetros como precisão, acurácia, faixa de operação, resolução, desvio padrão e limitações de medição. Essas informações permitem distinguir uma falha real do equipamento de uma limitação inerente ao processo de medição.</p>
+                <p>No ambiente pré-hospitalar, um dos equipamentos mais utilizados é o oxímetro de pulso. A saturação periférica de oxigênio (SpO₂) é um dos sinais vitais mais importantes na avaliação inicial de uma vítima, podendo indicar rapidamente situações potencialmente fatais. Para essa finalidade, equipes de emergência (SAMU ou Bombeiros) utilizam equipamentos de alta confiabilidade, como o oxímetro de pulso VT200B.</p>
+                <p>Durante uma ocorrência envolvendo uma vítima de acidente motociclístico, observamos um comportamento incomum no monitor. A vítima encontrava-se desorientada, enquanto a saturação de oxigênio apresentava valores aparentemente aleatórios: em alguns momentos 40%, em outros 60%, e frequentemente oscilando entre 55% e 68%. Diante dessas leituras inconsistentes, surgiu a suspeita de que o equipamento pudesse estar apresentando defeito.</p>
+                <p>Entretanto, por já conhecer as especificações técnicas do modelo utilizado, lembrei de uma informação valiosa presente no manual do fabricante: o equipamento não garante a precisão para valores de saturação inferiores a 70%, isso ocorre porque, nessa região extrema da escala, a ética nos testes e estudos para esse tipo de equipamento impede que voluntários saudáveis sejam levados a valores de saturação de 40% ou 50%. Dessa forma, a relação entre o sinal óptico captado e a saturação real deixa de apresentar a mesma confiabilidade observada nas faixas normais de operação.</p>
+                <p>A interpretação correta, portanto, não era que o equipamento estivesse defeituoso. Pelo contrário: ele estava operando exatamente dentro das limitações previstas pelo fabricante. As oscilações observadas indicavam que a medição havia ultrapassado a faixa de funcionamento validada do instrumento, sugerindo um quadro potencialmente crítico que exigia atenção imediata da equipe.</p>
+                <p>O aspecto mais interessante desse caso é que a leitura aparentemente "sem sentido" continha uma informação extremamente relevante. O erro não estava necessariamente no equipamento, mas na interpretação dos dados produzidos por ele. Em uma situação de emergência, essa diferença pode alterar completamente a percepção da gravidade do caso.</p>
+                <p>Esse episódio reforçou uma lição que a engenharia conhece há décadas: medir é apenas parte do processo. O verdadeiro desafio está em interpretar corretamente a medição. Seja na saúde, na indústria ou na pesquisa científica, conhecer as características, limitações e condições de operação dos instrumentos é tão importante quanto saber utilizá-los.</p>
+              </div>
+            </div>
+            <div class="pdf-footer">
+              <div class="pdf-tags"><span>APH</span><span>Oximetria</span><span>Engenharia</span><span>Interpretação clínica</span></div>
             </div>
           </article>
         </div>
