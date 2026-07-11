@@ -1,0 +1,70 @@
+title: Portfólio Alan Pablo
+description: Medicina, inteligência artificial e urgência operacional.
+url: https://alanpablo7.github.io
+baseurl: /portfolio-alan
+lang: pt-BR
+timezone: America/Fortaleza
+
+collections:
+  artigos:
+    output: true
+    permalink: /artigos/:name/
+  estudos:
+    output: true
+    permalink: /estudos-de-caso/:name/
+  projetos:
+    output: true
+    permalink: /projetos/:name/
+  videos:
+    output: true
+    permalink: /videos/:name/
+  ensaios:
+    output: true
+    permalink: /ensaios/:name/
+  livros:
+    output: true
+    permalink: /livros/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: artigos
+    values:
+      layout: conteudo
+      tipo: Artigo
+  - scope:
+      path: ""
+      type: estudos
+    values:
+      layout: conteudo
+      tipo: Estudo de caso
+  - scope:
+      path: ""
+      type: projetos
+    values:
+      layout: conteudo
+      tipo: Projeto
+  - scope:
+      path: ""
+      type: videos
+    values:
+      layout: conteudo
+      tipo: Vídeo
+  - scope:
+      path: ""
+      type: ensaios
+    values:
+      layout: conteudo
+      tipo: Ensaio tecnocientífico
+  - scope:
+      path: ""
+      type: livros
+    values:
+      layout: conteudo
+      tipo: Livro
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+

@@ -1,0 +1,187 @@
+locale: pt
+
+backend:
+  name: github
+  repo: alanpablo7/portfolio-alan
+  branch: main
+  squash_merges: true
+  use_graphql: true
+  # O endereço do provedor OAuth será inserido após a ativação externa.
+  base_url: https://portfolio-alan-auth.example.com
+  auth_endpoint: auth
+
+local_backend: true
+publish_mode: editorial_workflow
+site_url: https://alanpablo7.github.io/portfolio-alan/
+display_url: https://alanpablo7.github.io/portfolio-alan/
+logo_url: /portfolio-alan/imagens/alan-pablo.png
+
+media_folder: imagens/uploads
+public_folder: /imagens/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+editor:
+  preview: false
+
+collections:
+  - name: artigos
+    label: Artigos
+    label_singular: Artigo
+    folder: _artigos
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, featured]
+    view_filters:
+      - label: Destaques
+        field: featured
+        pattern: true
+    fields: &content_fields
+      - { label: Título, name: title, widget: string }
+      - { label: Data de publicação, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss Z" }
+      - { label: Resumo curto, name: summary, widget: text, hint: "Texto exibido nos cartões e na página inicial." }
+      - { label: Imagem de capa, name: cover, widget: image, required: false }
+      - label: Galeria de imagens
+        name: gallery
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { label: Imagem, name: image, widget: image }
+          - { label: Texto alternativo, name: alt, widget: string }
+          - { label: Legenda, name: caption, widget: string, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, allow_add: true }
+      - { label: Destacar na página inicial, name: featured, widget: boolean, default: false }
+      - { label: Ordem do destaque, name: featured_order, widget: number, value_type: int, default: 10, min: 1, hint: "1 aparece primeiro; números maiores aparecem depois." }
+      - { label: Publicado, name: published, widget: boolean, default: true }
+      - { label: Arquivo PDF, name: pdf, widget: file, required: false, media_folder: /pdfs }
+      - { label: Conteúdo, name: body, widget: markdown }
+
+  - name: estudos
+    label: Estudos de caso
+    label_singular: Estudo de caso
+    folder: _estudos
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields: *content_fields
+
+  - name: ensaios
+    label: Ensaios tecnocientíficos
+    label_singular: Ensaio
+    folder: _ensaios
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Data de publicação, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss Z" }
+      - { label: Resumo curto, name: summary, widget: text }
+      - { label: Imagem de capa, name: cover, widget: image, required: false }
+      - label: Galeria de imagens
+        name: gallery
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { label: Imagem, name: image, widget: image }
+          - { label: Texto alternativo, name: alt, widget: string }
+          - { label: Legenda, name: caption, widget: string, required: false }
+      - { label: Arquivo PDF, name: pdf, widget: file, required: false, media_folder: /pdfs }
+      - { label: Tags, name: tags, widget: list, required: false, allow_add: true }
+      - { label: Destacar na página inicial, name: featured, widget: boolean, default: false }
+      - { label: Ordem do destaque, name: featured_order, widget: number, value_type: int, default: 10, min: 1 }
+      - { label: Publicado, name: published, widget: boolean, default: true }
+      - { label: Conteúdo, name: body, widget: markdown }
+
+  - name: projetos
+    label: Projetos
+    label_singular: Projeto
+    folder: _projetos
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Categoria, name: category, widget: select, options: [Medicina, Inteligência Artificial, Emergência, Educação, Tecnologia] }
+      - { label: Resumo curto, name: summary, widget: text }
+      - { label: Imagem de capa, name: cover, widget: image, required: false }
+      - label: Galeria de imagens
+        name: gallery
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { label: Imagem, name: image, widget: image }
+          - { label: Texto alternativo, name: alt, widget: string }
+          - { label: Legenda, name: caption, widget: string, required: false }
+      - label: Arquivos para download
+        name: downloads
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { label: Nome do botão, name: label, widget: string }
+          - { label: Arquivo, name: file, widget: file, media_folder: /arquivos/uploads }
+      - { label: Link externo, name: external_url, widget: string, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, allow_add: true }
+      - { label: Destacar na página inicial, name: featured, widget: boolean, default: false }
+      - { label: Ordem do destaque, name: featured_order, widget: number, value_type: int, default: 10, min: 1 }
+      - { label: Publicado, name: published, widget: boolean, default: true }
+      - { label: Conteúdo, name: body, widget: markdown }
+
+  - name: videos
+    label: Vídeos
+    label_singular: Vídeo
+    folder: _videos
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Data de publicação, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss Z" }
+      - { label: Resumo curto, name: summary, widget: text }
+      - { label: URL do YouTube, name: youtube_url, widget: string }
+      - { label: ID do vídeo no YouTube, name: youtube_id, widget: string, hint: "Exemplo: _pypxWD-3Zs" }
+      - { label: Imagem de capa, name: cover, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, allow_add: true }
+      - { label: Destacar na página inicial, name: featured, widget: boolean, default: false }
+      - { label: Ordem do destaque, name: featured_order, widget: number, value_type: int, default: 10, min: 1 }
+      - { label: Publicado, name: published, widget: boolean, default: true }
+      - { label: Texto complementar, name: body, widget: markdown, required: false }
+
+  - name: livros
+    label: Livros
+    label_singular: Livro
+    folder: _livros
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Subtítulo, name: subtitle, widget: string, required: false }
+      - { label: Data de publicação, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss Z" }
+      - { label: Sinopse curta, name: summary, widget: text }
+      - { label: Capa, name: cover, widget: image }
+      - { label: Arquivo PDF, name: pdf, widget: file, required: false, media_folder: /pdfs }
+      - { label: Tags, name: tags, widget: list, required: false, allow_add: true }
+      - { label: Destacar na página inicial, name: featured, widget: boolean, default: false }
+      - { label: Ordem do destaque, name: featured_order, widget: number, value_type: int, default: 10, min: 1 }
+      - { label: Publicado, name: published, widget: boolean, default: true }
+      - { label: Apresentação completa, name: body, widget: markdown }

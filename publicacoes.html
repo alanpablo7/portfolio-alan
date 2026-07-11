@@ -1,0 +1,33 @@
+---
+layout: pagina
+title: Publicações
+kicker: Acervo autoral
+summary: Artigos, ensaios tecnocientíficos, estudos de caso, vídeos e livros organizados em um único acervo.
+permalink: /publicacoes.html
+---
+<section class="section-band">
+  <div class="page-shell">
+    {% assign artigos = site.artigos | where_exp: "item", "item.published != false" %}
+    {% assign ensaios = site.ensaios | where_exp: "item", "item.published != false" %}
+    {% assign estudos = site.estudos | where_exp: "item", "item.published != false" %}
+    {% assign videos = site.videos | where_exp: "item", "item.published != false" %}
+    {% assign items = artigos | concat: ensaios | concat: estudos | concat: videos | sort: "date" | reverse %}
+    {% if items.size > 0 %}
+      <div class="content-grid">
+        {% for item in items %}{% include content-card.html item=item %}{% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">Novas publicações aparecerão aqui automaticamente.</div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section-band">
+  <div class="page-shell">
+    <div class="section-head">
+      <div><div class="kicker">Criações autorais</div><h2>Livros</h2></div>
+      <a class="button secondary" href="{{ '/livros.html' | relative_url }}">Ver biblioteca de livros</a>
+    </div>
+  </div>
+</section>
+

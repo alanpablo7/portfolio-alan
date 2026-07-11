@@ -1,0 +1,18 @@
+---
+layout: pagina
+title: Livros
+kicker: Criações autorais
+summary: Obras de ficção e não ficção que exploram inteligência artificial, tecnologia, escolhas humanas e futuros possíveis.
+permalink: /livros.html
+---
+<section class="section-band">
+  <div class="page-shell">
+    {% assign livros = site.livros | where_exp: "item", "item.published != false" | sort: "date" | reverse %}
+    {% if livros.size > 0 %}
+      <div class="content-grid">{% for item in livros %}{% include content-card.html item=item %}{% endfor %}</div>
+    {% else %}
+      <div class="empty-state">Os livros publicados aparecerão aqui.</div>
+    {% endif %}
+  </div>
+</section>
+

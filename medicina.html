@@ -1,0 +1,42 @@
+---
+layout: pagina
+title: Medicina e Emergência
+kicker: Área principal
+summary: Projetos, estudos de caso e ensaios que conectam fisiologia, monitorização clínica, Atendimento Pré-Hospitalar e tecnologia aplicada ao cuidado.
+permalink: /medicina.html
+---
+<section class="section-band">
+  <div class="page-shell">
+    <div class="section-head">
+      <div><div class="kicker">Aplicações práticas</div><h2>Projetos em saúde</h2></div>
+      <p>Soluções construídas a partir de necessidades clínicas e operacionais reais.</p>
+    </div>
+    {% assign projetos = site.projetos | where_exp: "item", "item.published != false" %}
+    {% assign projetos_medicos = projetos | where: "category", "Medicina" %}
+    <div class="content-grid">{% for item in projetos_medicos %}{% include content-card.html item=item %}{% endfor %}</div>
+  </div>
+</section>
+
+<section class="section-band">
+  <div class="page-shell">
+    <div class="section-head">
+      <div><div class="kicker">Vivência operacional</div><h2>Estudos de caso</h2></div>
+      <p>Ocorrências analisadas pela perspectiva clínica, técnica e instrumental.</p>
+    </div>
+    {% assign estudos = site.estudos | where_exp: "item", "item.published != false" | sort: "date" | reverse %}
+    <div class="content-grid">{% for item in estudos %}{% include content-card.html item=item %}{% endfor %}</div>
+  </div>
+</section>
+
+<section class="section-band">
+  <div class="page-shell">
+    <div class="section-head">
+      <div><div class="kicker">Raciocínio interdisciplinar</div><h2>Ensaios relacionados</h2></div>
+    </div>
+    {% assign ensaios = site.ensaios | where_exp: "item", "item.published != false" %}
+    <div class="content-grid">
+      {% for item in ensaios %}{% if item.tags contains "Fisiologia" or item.tags contains "Neurociência" %}{% include content-card.html item=item %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+

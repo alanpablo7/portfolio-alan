@@ -1,0 +1,61 @@
+---
+layout: base
+---
+<article>
+  <header class="content-hero">
+    <div class="page-shell narrow">
+      <a class="back-link" href="{{ '/publicacoes.html' | relative_url }}">← Voltar ao acervo</a>
+      <div class="kicker">{{ page.tipo }}</div>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+      {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
+      {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>{% endif %}
+    </div>
+  </header>
+
+  <div class="page-shell content-shell">
+    {% if page.youtube_id %}
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ page.youtube_id }}" title="{{ page.title | escape }}" loading="lazy" allowfullscreen></iframe>
+      </div>
+    {% elsif page.cover %}
+      <figure class="cover-frame">
+        <img src="{{ page.cover | relative_url }}" alt="Capa de {{ page.title | escape }}">
+      </figure>
+    {% endif %}
+
+    {% if page.gallery and page.gallery.size > 0 %}
+      <div class="content-gallery" data-content-gallery>
+        <div class="gallery-stage">
+          {% for item in page.gallery %}
+            <figure class="gallery-slide{% if forloop.first %} active{% endif %}">
+              <img src="{{ item.image | relative_url }}" alt="{{ item.alt | default: page.title | escape }}">
+              {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+            </figure>
+          {% endfor %}
+          <button type="button" class="gallery-arrow prev" data-prev aria-label="Imagem anterior">‹</button>
+          <button type="button" class="gallery-arrow next" data-next aria-label="Próxima imagem">›</button>
+        </div>
+        <div class="gallery-dots">
+          {% for item in page.gallery %}<button type="button" class="gallery-dot{% if forloop.first %} active{% endif %}" aria-label="Mostrar imagem {{ forloop.index }}"></button>{% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="prose">{{ content }}</div>
+
+    {% if page.tags %}
+      <div class="tag-row">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+    {% endif %}
+
+    {% if page.pdf or page.downloads or page.external_url or page.youtube_url %}
+      <div class="download-row">
+        {% if page.pdf %}<a class="button primary" href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">Abrir PDF</a>{% endif %}
+        {% for item in page.downloads %}<a class="button secondary" href="{{ item.file | relative_url }}" download>{{ item.label }}</a>{% endfor %}
+        {% if page.external_url %}<a class="button secondary" href="{{ page.external_url }}" target="_blank" rel="noopener">Acessar projeto</a>{% endif %}
+        {% if page.youtube_url %}<a class="button secondary" href="{{ page.youtube_url }}" target="_blank" rel="noopener">Assistir no YouTube</a>{% endif %}
+      </div>
+    {% endif %}
+  </div>
+</article>
+

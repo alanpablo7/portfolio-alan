@@ -1,0 +1,32 @@
+---
+layout: pagina
+title: Inteligência Artificial
+kicker: Sistemas e automação
+summary: Projetos que utilizam inteligência artificial, automação e análise de dados para transformar informação bruta em apoio prático à decisão.
+permalink: /inteligencia-artificial.html
+---
+<section class="section-band">
+  <div class="page-shell">
+    <div class="section-head">
+      <div><div class="kicker">Projetos</div><h2>IA aplicada</h2></div>
+      <p>Automações, fluxos inteligentes e plataformas digitais.</p>
+    </div>
+    {% assign projetos = site.projetos | where_exp: "item", "item.published != false" %}
+    <div class="content-grid">
+      {% for item in projetos %}{% if item.category == "Inteligência Artificial" or item.tags contains "OpenAI" %}{% include content-card.html item=item %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-band">
+  <div class="page-shell narrow">
+    <div class="section-head">
+      <div><div class="kicker">Direção de trabalho</div><h2>IA com contexto humano</h2></div>
+    </div>
+    <div class="prose">
+      <p>O foco não é substituir o profissional, mas organizar sinais, contexto e tendências para apoiar decisões mais rápidas, seguras e rastreáveis.</p>
+      <p>As áreas de interesse incluem monitorização clínica, triagem inteligente, automação, análise multimodal e tecnologias embarcadas aplicadas à medicina.</p>
+    </div>
+  </div>
+</section>
+

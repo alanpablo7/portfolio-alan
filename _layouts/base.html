@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}Alan Pablo</title>
+  <meta name="description" content="{{ page.summary | default: site.description | strip_html | escape }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/content.css' | relative_url }}">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Navegação principal">
+    <div class="nav-shell">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark">AP</span>
+        <span>Alan Pablo</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">Menu</button>
+      <div class="nav-links" id="siteNavLinks">
+        <a href="{{ '/' | relative_url }}">Início</a>
+        <a href="{{ '/medicina.html' | relative_url }}">Medicina</a>
+        <a href="{{ '/inteligencia-artificial.html' | relative_url }}">Inteligência Artificial</a>
+        <a href="{{ '/publicacoes.html' | relative_url }}">Publicações</a>
+        <a href="{{ '/sobre.html' | relative_url }}">Sobre</a>
+        <a href="{{ '/' | relative_url }}#contato">Contato</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">Tema</button>
+    </div>
+  </nav>
+
+  <main>{{ content }}</main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-shell">
+      <p>© <span id="year"></span> Alan Pablo.</p>
+      <div>
+        <a href="{{ '/livros.html' | relative_url }}">Livros</a>
+        <a href="{{ '/publicacoes.html' | relative_url }}">Publicações</a>
+        <a href="mailto:alanpablolima7@gmail.com">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNavLinks = document.getElementById('siteNavLinks');
+    const savedTheme = localStorage.getItem('portfolio-theme');
+
+    if (savedTheme === 'light') body.classList.add('light');
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      localStorage.setItem('portfolio-theme', body.classList.contains('light') ? 'light' : 'dark');
+    });
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteNavLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-content-gallery]').forEach(gallery => {
+      const slides = [...gallery.querySelectorAll('.gallery-slide')];
+      const dots = [...gallery.querySelectorAll('.gallery-dot')];
+      let current = 0;
+      const show = index => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+      };
+      gallery.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+      gallery.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+    });
+  </script>
+</body>
+</html>
+
